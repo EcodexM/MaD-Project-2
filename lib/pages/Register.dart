@@ -57,9 +57,10 @@ class _RegisterPageState extends State<RegisterPage> {
             MyButton(text: "Register", onTap: () {}),
             const SizedBox(height: 25),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Already Have an Account",
+                  "Already a Foodie?",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
@@ -70,7 +71,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 GestureDetector(
                     onTap: widget.onTap,
                     child: Text(
-                      "Log in Here",
+                      "Login Here",
                       style: TextStyle(
                         color: Theme.of(context).colorScheme.inversePrimary,
                         fontWeight: FontWeight.bold,

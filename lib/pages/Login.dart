@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
               size: 100,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
-            Text("Food Delivery App",
+            Text("The \"Foodie\" App",
                 style: TextStyle(
                   fontSize: 16,
                   color: Theme.of(context).colorScheme.inversePrimary,
@@ -74,9 +74,10 @@ class _LoginPageState extends State<LoginPage> {
             MyButton(text: "Sign in", onTap: login),
             const SizedBox(height: 25),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Not a Member",
+                  "Not a Foodie yet?",
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),
