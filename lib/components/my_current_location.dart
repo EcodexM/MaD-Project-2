@@ -8,7 +8,7 @@ class MycurrentLocation extends StatelessWidget {
         builder: (context) => AlertDialog(
               title: Text("Your Location"),
               content: TextField(
-                decoration: const InputDecoration(hintText: "Search Address"),
+                decoration: const InputDecoration(hintText: "Enter address"),
               ),
               actions: [
                 MaterialButton(

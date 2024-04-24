@@ -23,6 +23,8 @@ class _foodPageState extends State<FoodPage> {
   void addToCart(Food food, Map<Addon, bool> selectedAddons) {
     //back to menu
     Navigator.pop(context);
+
+    //Selected addons
     List<Addon> currentlySelectedAddons = [];
 
     for (Addon addon in widget.food.availableAddons) {

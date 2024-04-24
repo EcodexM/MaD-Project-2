@@ -1,6 +1,7 @@
 import 'package:ffirebaseapp/Models/cart_items.dart';
 import 'package:ffirebaseapp/components/my_button.dart';
 import 'package:ffirebaseapp/components/my_cart_tile.dart';
+import 'package:ffirebaseapp/pages/payment_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ffirebaseapp/Models/restaurant.dart';
 import 'package:flutter/widgets.dart';
@@ -68,7 +69,15 @@ class CartPage extends StatelessWidget {
                 ],
               ),
             ),
-            MyButton(text: "Check-Out", onTap: () {})
+            MyButton(
+                text: "Check-Out",
+                onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const paymentPage()))),
+            const SizedBox(
+              height: 25,
+            ),
           ],
         ),
       );

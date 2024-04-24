@@ -73,6 +73,7 @@ class _PaymentPageState extends State<paymentPage> {
                 onPressed: () => Navigator.pop(context), child: Text("Cancel"))
           ],
         ),
+
       );*/
     }
   }
