@@ -1,6 +1,7 @@
 import 'package:ffirebaseapp/Themes/Theme_provider.dart';
 import 'package:ffirebaseapp/components/my_button.dart';
 import 'package:ffirebaseapp/components/my_textfield.dart';
+import 'package:ffirebaseapp/services/auth/auth_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,18 +28,23 @@ class _LoginPageState extends State<LoginPage> {
   //final FirebaseAuth _auth = FirebaseAuth.instance;
 
 //log in
-  void login() {
-    /*
+  void login() async {
+    //instance
+    final _authService = AuthService();
 
-  Fill all the authentication
-
-
-  navigate to the home page
-
-  */
-
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomePage()));
+    //sign in
+    try {
+      await _authService.signInWithEmailPassword(
+        emailController.text,
+        passwordController.text,
+      );
+    } catch (e) {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text(e.toString()),
+              ));
+    }
   }
 
   @override
@@ -87,11 +93,13 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 GestureDetector(
                     onTap: widget.onTap,
-                    child: Text(
-                      "Register Here",
-                      style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary,
-                        fontWeight: FontWeight.bold,
+                    child: Center(
+                      child: Text(
+                        "Register Here",
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     )),
               ],

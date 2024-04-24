@@ -1,3 +1,4 @@
+import 'package:ffirebaseapp/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import '../pages/settings_page.dart';
 import 'my_drawer_tile.dart';
@@ -44,7 +45,10 @@ class MyDrawer extends StatelessWidget {
           MyDrawerTile(
             text: "L O G O U T",
             icon: Icons.logout,
-            onTap: () {},
+            onTap: () async {
+              final authService = AuthService();
+              authService.signOut();
+            },
           ),
           const SizedBox(
             height: 25,

@@ -1,3 +1,4 @@
+import 'package:ffirebaseapp/pages/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class MySliverAppBar extends StatelessWidget {
@@ -18,7 +19,12 @@ class MySliverAppBar extends StatelessWidget {
         floating: false,
         pinned: true,
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart))
+          IconButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const CartPage()));
+              },
+              icon: const Icon(Icons.shopping_cart))
         ],
         backgroundColor: Theme.of(context).colorScheme.background,
         title: Text("Sunset Dinner"),

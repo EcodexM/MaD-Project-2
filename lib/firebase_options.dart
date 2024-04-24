@@ -87,4 +87,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'authentication-fd10a.appspot.com',
     measurementId: 'G-TE60SV245V',
   );
+
 }

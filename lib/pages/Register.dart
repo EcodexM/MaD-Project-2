@@ -1,4 +1,5 @@
 import 'package:ffirebaseapp/components/my_button.dart';
+import 'package:ffirebaseapp/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 
 import '../components/my_textfield.dart';
@@ -18,6 +19,32 @@ class _RegisterPageState extends State<RegisterPage> {
       TextEditingController();
 
   //final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void register() async {
+    //get auth service
+    final _authService = AuthService();
+
+    //check if pass confirmation matches
+    if (passwordController.text == confirmPasswordController.text) {
+      //create user
+      try {
+        await _authService.signUpWithEmailPassword(
+            emailController.text, passwordController.text);
+      } catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+      }
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text("Password do not Match."),
+              ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
