@@ -9,6 +9,7 @@ class MyDescriptionBox extends StatelessWidget {
       color: Theme.of(context).colorScheme.inversePrimary,
     );
     var mySecondaryTextStyle = TextStyle(
+      // secondary color or primary???
       color: Theme.of(context).colorScheme.secondary,
     );
     return Container(

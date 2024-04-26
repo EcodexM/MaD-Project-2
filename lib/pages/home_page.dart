@@ -1,15 +1,15 @@
-import 'dart:async';
+//import 'dart:ffi';
+import 'package:ffirebaseapp/pages/food_page.dart';
+import 'package:ffirebaseapp/Models/restaurant.dart';
 import 'package:ffirebaseapp/components/my_current_location.dart';
 import 'package:ffirebaseapp/components/my_description_box.dart';
 import 'package:ffirebaseapp/components/my_drawer.dart';
+import 'package:ffirebaseapp/components/my_food_tile.dart';
 import 'package:ffirebaseapp/components/my_sliver_app_bar.dart';
 import 'package:ffirebaseapp/components/my_tab_bar.dart';
-import 'package:ffirebaseapp/components/my_food_tile.dart';
-import 'package:ffirebaseapp/pages/food_page.dart';
-import 'package:ffirebaseapp/Models/food.dart';
-import 'package:ffirebaseapp/Models/restaurant.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import 'package:ffirebaseapp/Models/food.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,29 +34,25 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
     super.dispose();
   }
 
-//sort and return a list
-  List<Food> _filterMenuByCategory(FoodCategory, List<Food> fullMenu) {
-    return fullMenu
-        .where((food) => food.category == food.category)
-        .toList(); // == category
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fulMenu) {
+    return fulMenu.where((food) => food.category == category).toList();
   }
 
-  List<Widget> getFoodInThisCategory(List<Food> fullMenu) {
+  List<Widget> getFoodInThisCategory(List<Food> fulMenu) {
     return FoodCategory.values.map((category) {
-      List<Food> categoryMenu = _filterMenuByCategory(category, fullMenu);
+      List<Food> categorMenu = _filterMenuByCategory(category, fulMenu);
+
       return ListView.builder(
-        itemCount: categoryMenu.length,
+        itemCount: categorMenu.length,
         physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          //get individual food
-          final food = categoryMenu[index];
+          final food = categorMenu[index];
           return FoodTile(
-              food: food,
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => FoodPage(food: food))));
+            food: food,
+            onTap: () => Navigator.push(context,
+                MaterialPageRoute(builder: (context) => FoodPage(food: food))),
+          );
         },
       );
     }).toList();
@@ -65,33 +61,38 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: MyDrawer(),
-        body: NestedScrollView(
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      drawer: const MyDrawer(),
+      body: NestedScrollView(
           headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            MySliverAppBar(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Divider(
-                      indent: 25,
-                      endIndent: 25,
-                      color: Theme.of(context).colorScheme.secondary,
-                    ),
+                MySliverAppBar(
+                  title: MyTabBar(
+                    tabContoller: _tabController,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Divider(
+                        color: Theme.of(context).colorScheme.secondary,
+                        indent: 25,
+                        endIndent: 25,
+                      ),
 
-                    //my current location
-                    const MycurrentLocation(),
+                      //switch
+                      MycurrentLocation(),
 
-                    //discription Box
-                    const MyDescriptionBox()
-                  ],
+                      // description box
+                      const MyDescriptionBox()
+                    ],
+                  ),
                 ),
-                title: MyTabBar(tabContoller: _tabController))
-          ],
+              ],
           body: Consumer<Restaurant>(
-              builder: (context, restaurant, child) => TabBarView(
-                    controller: _tabController,
-                    children: getFoodInThisCategory(restaurant.menu),
-                  )),
-        ));
+            builder: (context, restaurant, child) => TabBarView(
+                controller: _tabController,
+                children: getFoodInThisCategory(restaurant.menu)),
+          )),
+    );
   }
 }

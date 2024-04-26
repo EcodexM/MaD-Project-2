@@ -1,4 +1,4 @@
-import 'dart:js_util';
+//import 'dart:js_util';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -8,51 +8,43 @@ import 'package:ffirebaseapp/Models/cart_items.dart';
 class Restaurant extends ChangeNotifier {
   //list of food menu
   final List<Food> _menu = [
-    //burgers
+    //bowls
     Food(
-        name: "Classic Cheeseburger",
+        name: "Classic Bowl",
         description:
-            "A juicey beef patty with melted cheddar, lettuce, tamato, and a hint of onion and pickle.",
-        imagePath: "lib/images/burgers/cheese_burger.png",
+            "The classic bowl with all the nutrients you need! Fresh cut vegetables form our garden.",
+        imagePath: "lib/images/bowls/Salad Bowl.png",
         price: 0.99,
-        category: FoodCategory.burgers,
+        category: FoodCategory.bowls,
         availableAddons: [
-          Addon(name: "Extra cheese", price: 0.99),
-          Addon(name: "Bacon", price: 1.99),
-          Addon(name: "Avocado", price: 2.99)
+          Addon(name: "Dressing", price: 0.99),
+          Addon(name: "Extra Greens", price: 1.99),
+          Addon(name: "Protien", price: 2.99)
         ]),
     Food(
-        name: "Classic Cheeseburger",
+        name: "Raspberry Cheesecake",
         description:
-            "A juicey beef patty with melted cheddar, lettuce, tamato, and a hint of onion and pickle.",
-        imagePath: "lib/images/burgers/cheese_burger.png",
+            "Delicious cheesecake made with all fresh ingredients from our garden and local farms",
+        imagePath: "lib/images/dessert/Raspberry Cheesecake.png",
         price: 0.99,
-        category: FoodCategory.burgers,
+        category: FoodCategory.bowls,
         availableAddons: [
-          Addon(name: "Extra cheese", price: 0.99),
-          Addon(name: "Bacon", price: 1.99),
-          Addon(name: "Avocado", price: 2.99)
+          Addon(name: "Extra raspberry", price: 0.99),
+          Addon(name: "Whipped Cream", price: 1.99),
+          Addon(name: "Ice Cream", price: 2.99)
         ]),
     Food(
-        name: "Classic Cheeseburger",
+        name: "Classic Green Meal",
         description:
-            "A juicey beef patty with melted cheddar, lettuce, tamato, and a hint of onion and pickle.",
-        imagePath: "lib/images/burgers/cheese_burger.png",
+            "Enjoy your eggs with a little bit of green from our garden!",
+        imagePath: "lib/images/greens/Eggs and Greens.png",
         price: 0.99,
-        category: FoodCategory.burgers,
+        category: FoodCategory.bowls,
         availableAddons: [
-          Addon(name: "Extra cheese", price: 0.99),
-          Addon(name: "Bacon", price: 1.99),
-          Addon(name: "Avocado", price: 2.99)
+          Addon(name: "Extra Greens", price: 0.99),
+          Addon(name: "Egg", price: 1.99),
+          Addon(name: "Bacon", price: 2.99)
         ]),
-
-    //salads
-
-    //sides
-
-    //desserts
-
-    //drinks
   ];
 //getters
   List<Food> get menu => _menu;

@@ -37,7 +37,6 @@ class MyCartTile extends StatelessWidget {
                     const SizedBox(
                       width: 10,
                     ),
-
                     //name and price
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,15 +85,17 @@ class MyCartTile extends StatelessWidget {
                         (addon) => Padding(
                           padding: const EdgeInsets.only(right: 8.0),
                           child: FilterChip(
-                            label: Row(
-                              children: [
-                                //addon name
-                                Text(addon.name),
+                            label: Row(children: [
+                              //addon name
+                              Text(addon.name),
 
-                                //addon price
-                                Text(addon.price.toString())
-                              ],
-                            ),
+                              //addon price
+                              Text(addon.price.toString())
+                            ]),
+                            shape: StadiumBorder(
+                                side: BorderSide(
+                                    color:
+                                        Theme.of(context).colorScheme.primary)),
                             onSelected: (value) {},
                             backgroundColor:
                                 Theme.of(context).colorScheme.secondary,
