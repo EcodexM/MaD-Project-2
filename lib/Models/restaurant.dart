@@ -8,38 +8,67 @@ import 'package:ffirebaseapp/Models/cart_items.dart';
 class Restaurant extends ChangeNotifier {
   //list of food menu
   final List<Food> _menu = [
-    //bowls
+    //burgers
     Food(
-        name: "Classic Bowl",
+        name: "Classic Cheese Burger",
         description:
-            "The classic bowl with all the nutrients you need! Fresh cut vegetables form our garden.",
-        imagePath: "lib/images/bowls/Salad Bowl.png",
+            "The classic burger with all the nutrients you need! Fresh cut vegetables form our garden.",
+        imagePath: "images/burgers/burger1.png",
         price: 0.99,
-        category: FoodCategory.bowls,
+        category: FoodCategory.burgers,
         availableAddons: [
-          Addon(name: "Dressing", price: 0.99),
-          Addon(name: "Extra Greens", price: 1.99),
-          Addon(name: "Protien", price: 2.99)
+          Addon(name: "Extra Cheese", price: 0.99),
+          Addon(name: "Bacon", price: 1.99),
+          Addon(name: "Avocado", price: 2.99)
         ]),
+
+    //desserts
     Food(
         name: "Raspberry Cheesecake",
         description:
             "Delicious cheesecake made with all fresh ingredients from our garden and local farms",
-        imagePath: "lib/images/dessert/Raspberry Cheesecake.png",
+        imagePath: "images/dessert/Raspberry_Cheesecake.png",
         price: 0.99,
-        category: FoodCategory.bowls,
+        category: FoodCategory.desserts,
         availableAddons: [
           Addon(name: "Extra raspberry", price: 0.99),
           Addon(name: "Whipped Cream", price: 1.99),
           Addon(name: "Ice Cream", price: 2.99)
         ]),
+
+    //drinks
+    Food(
+        name: "Sprite",
+        description: "Icy cold",
+        imagePath: "lib/images/drinks/drink2.png",
+        price: 0.99,
+        category: FoodCategory.drinks,
+        availableAddons: [
+          Addon(name: "No Ice", price: 0.99),
+          Addon(name: "With ice", price: 1.99),
+        ]),
+
+    //salads
+    Food(
+        name: "Meat Bowl",
+        description:
+            "Juicy Meat with all the nutrients you need! Fresh cut vegetables form our garden.",
+        imagePath: "lib/images/salads/Meat-Bowl.png",
+        price: 0.99,
+        category: FoodCategory.salads,
+        availableAddons: [
+          Addon(name: "Extra vegies", price: 0.99),
+          Addon(name: "Extra Sauce", price: 1.99),
+        ]),
+
+    //sides
     Food(
         name: "Classic Green Meal",
         description:
             "Enjoy your eggs with a little bit of green from our garden!",
-        imagePath: "lib/images/greens/Eggs and Greens.png",
+        imagePath: "lib/images/greens/Eggs_and_Greens.png",
         price: 0.99,
-        category: FoodCategory.bowls,
+        category: FoodCategory.sides,
         availableAddons: [
           Addon(name: "Extra Greens", price: 0.99),
           Addon(name: "Egg", price: 1.99),

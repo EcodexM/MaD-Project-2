@@ -5,6 +5,9 @@ class FoodTile extends StatelessWidget {
   const FoodTile({super.key, required this.food, required this.onTap});
   final Food food;
   final void Function()? onTap;
+  String Print(String path) {
+    return path;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +40,7 @@ class FoodTile extends StatelessWidget {
                     ),
                   ],
                 )),
+
                 const SizedBox(width: 15),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8),
@@ -45,6 +49,7 @@ class FoodTile extends StatelessWidget {
                     height: 120,
                   ),
                 ),
+                Text(Print(food.imagePath)),
               ],
             ),
           ),

@@ -27,7 +27,7 @@ class MySliverAppBar extends StatelessWidget {
               icon: const Icon(Icons.shopping_cart))
         ],
         backgroundColor: Theme.of(context).colorScheme.background,
-        title: Text("Sunset Dinner"),
+        title: Text("Welcome"),
         flexibleSpace: FlexibleSpaceBar(
           background: child,
           title: title,

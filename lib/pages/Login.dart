@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Icon(
-              Icons.lock_open_rounded,
+              Icons.key_rounded,
               size: 100,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
