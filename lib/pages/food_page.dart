@@ -44,7 +44,7 @@ class _foodPageState extends State<FoodPage> {
             child: Column(
               children: [
                 //image
-                Image.asset(widget.food.imagePath),
+                Image.network(widget.food.imagePath),
 
                 Padding(
                   padding: const EdgeInsets.all(25.0),
